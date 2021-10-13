@@ -27,7 +27,7 @@ API Documentation details:
 ├── /points
 │    └── GET
 │        ├── /balance
-│   └── POST
+│    └── POST
 │       ├── /spend
 
 
