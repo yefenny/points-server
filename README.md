@@ -1,26 +1,94 @@
-# Express Boilerplate!
+# Points Server
 
-This is a boilerplate project used for starting new projects!
+This is an app server when transactions can be made, you can subtract points from payers and get the payers' points balance.
 
-## Set up
+### 1. Functionality
 
-Complete the following steps to start a new project (NEW-PROJECT-NAME):
+The app's functionality includes:
 
-1. Clone this repository to your local machine `git clone BOILERPLATE-URL NEW-PROJECTS-NAME`
-2. `cd` into the cloned repository
-3. Make a fresh start of the git history for this project with `rm -rf .git && git init`
-4. Install the node dependencies `npm install`
-5. Move the example Environment file to `.env` that will be ignored by git and read by the express server `mv example.env .env`
-6. Edit the contents of the `package.json` to use NEW-PROJECT-NAME instead of `"name": "express-boilerplate",`
+- Every user can add transactions that include the payer name, points, and timestamp.
+- Every user can spend points that will be distributed by the oldest transactions (based on timestamp) without leaving any payer with a negative balance.
+- Every user can see the payers' points balance.
 
-## Scripts
+### 2. Technology
 
-Start the application `npm start`
+- Back-End: Node.js, Express.js, RESTful API Endpoints
 
-Start nodemon for the application `npm run dev`
+### 3. API Documentation
 
-Run the tests `npm test`
+API Documentation details:
 
-## Deploying
+```text
+/api
+.
+├── /transactions
+│   └── POST
+│       ├── /add
+├── /points
+    └── GET
+        ├── /balance
+│   └── POST
+│       ├── /spend
 
-When your new project is ready for deployment, add a new Heroku application with `heroku create`. This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's main branch.
+
+```
+
+#### POST `/api/transactions/add`
+
+```js
+
+
+// req.body
+
+ {
+     { "payer": "DANNON", "points": 1000, "timestamp": "2020-11-02T14:00:00Z" }
+ }
+
+// res.body
+
+{
+}
+
+```
+
+#### POST `/api/points/spend`
+
+```js
+// req.header
+
+// req.body
+{
+  points: 100
+}
+// res.body
+
+ { payer: "DANNON",
+   points: -100
+ }
+
+
+```
+
+#### GET `/api/points/balance
+
+```js
+
+
+// res.body
+
+   {
+        "DANNON": 900
+    }
+
+
+
+```
+
+### 4. How to run it
+
+Use command line to navigate into the project folder and run the following in terminal
+
+##### Local Node scripts
+
+- To install the node project ===> npm install
+- To run Node server (on port 8000) ===> npm start

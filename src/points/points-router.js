@@ -2,7 +2,7 @@ const express = require('express');
 const { transactions } = require('../store');
 const pointsRouter = express.Router();
 
-pointsRouter.route('/spend/').post((req, res, next) => {
+pointsRouter.route('/spend').post((req, res, next) => {
   let { points } = req.body;
 
   if (!points) {
@@ -39,7 +39,7 @@ pointsRouter.route('/spend/').post((req, res, next) => {
   res.send(spend);
 });
 
-pointsRouter.route('/balance/').get((req, res, next) => {
+pointsRouter.route('/balance').get((req, res, next) => {
   let balance = {};
   transactions.forEach((obj) => {
     balance[obj.payer]
