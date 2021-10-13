@@ -40,9 +40,12 @@ API Documentation details:
 
 // req.body
 
- {
-     { "payer": "DANNON", "points": 1000, "timestamp": "2020-11-02T14:00:00Z" }
- }
+{ 
+    "payer": "DANNON",
+     "points": 1000,
+      "timestamp": "2020-11-02T14:00:00Z" 
+}
+
 
 // res.body
 
@@ -54,31 +57,30 @@ API Documentation details:
 #### POST `/api/points/spend`
 
 ```js
-// req.header
 
 // req.body
 {
-  points: 100
+    points: 100
 }
 // res.body
 
- { payer: "DANNON",
-   points: -100
- }
+{ 
+    payer: "DANNON",
+    points: -100
+}
 
 
 ```
 
-#### GET `/api/points/balance
+#### GET `/api/points/balance`
 
 ```js
 
-
 // res.body
 
-   {
-        "DANNON": 900
-    }
+{
+    "DANNON": 900
+}
 
 
 
