@@ -28,7 +28,7 @@ API Documentation details:
 │    └── GET
 │        ├── /balance
 │    └── POST
-│       ├── /spend
+│        ├── /spend
 
 
 ```
